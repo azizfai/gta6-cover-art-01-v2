@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice City Cover Studio — GTA-style cover maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h1>VICE CITY<br><span>COVER STUDIO</span></h1>
+    <p class="tagline">Your photos, a bold caption, a Vice City sunset — exported as a PNG to share. Fully offline; photos never leave your machine.</p>
+
+    <div class="group">
+      <h2>1 · Layout</h2>
+      <div id="layouts" class="buttons"></div>
+    </div>
+
+    <div class="group">
+      <h2>2 · Colour grade</h2>
+      <div id="grades" class="buttons"></div>
+    </div>
+
+    <div class="group">
+      <h2>3 · Photos</h2>
+      <label class="file">Upload your photos
+        <input id="upload" type="file" accept="image/*" multiple>
+      </label>
+      <div id="samples" class="buttons">
+        <button type="button" data-sample="boulevard">Sample: Boulevard</button>
+        <button type="button" data-sample="pier">Sample: Pier</button>
+      </div>
+      <p id="panelLabel" class="hint" role="status"></p>
+      <label>Zoom selected panel
+        <input id="zoom" type="range" min="1" max="3" step="0.05" value="1">
+      </label>
+      <div class="buttons">
+        <label class="file small">Replace panel photo
+          <input id="replace" type="file" accept="image/*">
+        </label>
+        <button id="fillAll" type="button">Fill all panels with this photo</button>
+        <button id="resetPanels" type="button">Reset panel positions</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>4 · Caption</h2>
+      <label>Title
+        <input id="caption" type="text" maxlength="24" value="VICE CITY">
+      </label>
+      <label>Subtitle
+        <input id="subtitle" type="text" maxlength="40" value="A LEONIDA STORY">
+      </label>
+    </div>
+
+    <div class="group">
+      <h2>5 · Preview size &amp; export</h2>
+      <div id="sizes" class="buttons"></div>
+      <div id="exports" class="buttons export">
+        <button type="button" data-export="square">Export PNG 1080 × 1080</button>
+        <button type="button" data-export="portrait">Export PNG 1080 × 1350</button>
+        <button type="button" data-export="landscape">Export PNG 1920 × 1080</button>
+      </div>
+      <p id="status" class="hint" role="status"></p>
+    </div>
+  </section>
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080"></canvas>
+    <p class="hint">Click a panel to select it. Drag inside a panel to move its photo, scroll over it to zoom.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

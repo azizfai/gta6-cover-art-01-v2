@@ -1,0 +1,38 @@
+/* Vice City Cover Studio — dark editor UI, neon accents, no network. */
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #120a24; color: #f5eefc; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 26px; }
+.controls { width: 330px; flex: 0 0 330px; display: flex; flex-direction: column; gap: 18px; }
+.controls h1 { margin: 0; font-size: 34px; line-height: 0.95; letter-spacing: 0.02em; font-weight: 900; color: #fff; text-shadow: 0 0 18px rgba(255, 46, 136, 0.55); }
+.controls h1 span { font-size: 19px; letter-spacing: 0.34em; color: #37f4e4; text-shadow: none; }
+.tagline { margin: 0; color: #c9b8e8; }
+.group { background: #1d1038; border: 1px solid #3a2364; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.group h2 { margin: 0; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #ffcf5c; }
+.buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+button, .file { font: inherit; font-weight: 700; padding: 9px 12px; border: 1px solid #4a2d7d; border-radius: 8px; background: #2a1850; color: #f5eefc; cursor: pointer; text-align: left; }
+button:hover, .file:hover { background: #3a2364; }
+button.active { background: #ff2e88; border-color: #ff2e88; color: #fff; }
+.export button { background: #ffcf5c; border-color: #ffcf5c; color: #241105; }
+.export button:hover { background: #ffe08a; }
+.file { display: block; }
+.file.small { font-size: 13px; }
+.file input { display: none; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; }
+input[type=text] { font: inherit; padding: 9px 10px; border: 1px solid #4a2d7d; border-radius: 8px; background: #150b2b; color: #fff; }
+input[type=range] { width: 100%; accent-color: #ff2e88; }
+.hint { margin: 0; font-size: 13px; color: #b7a6d8; }
+.preview { flex: 1 1 auto; max-width: 760px; display: flex; flex-direction: column; gap: 10px; align-items: center; position: sticky; top: 26px; }
+.preview canvas { width: min(72vh, 100%); height: auto; border-radius: 6px; box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55); cursor: grab; touch-action: none; }
+.preview canvas:active { cursor: grabbing; }
+.preview .hint { text-align: center; }
+/* Screenshot mode: cover alone, full frame, no controls. */
+body.shot-cover { background: #fff; }
+body.shot-cover .controls, body.shot-cover .preview .hint { display: none; }
+body.shot-cover .app { padding: 0; gap: 0; display: block; }
+body.shot-cover .preview { max-width: none; position: static; }
+body.shot-cover canvas { width: 100vw; height: 100vh; border-radius: 0; box-shadow: none; }
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .controls { width: 100%; flex-basis: auto; }
+  .preview { position: static; max-width: 100%; }
+}
